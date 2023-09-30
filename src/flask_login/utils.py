@@ -177,7 +177,7 @@ def login_user(user, remember=False, duration=None, force=False, fresh=True):
         marked as not "fresh". Defaults to ``True``.
     :type fresh: bool
     """
-    if not force and not user.is_active:
+    if not force and not user.is_active():
         return False
 
     user_id = getattr(user, current_app.login_manager.id_attribute)()
